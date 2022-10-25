@@ -12,9 +12,8 @@ import unittest
 class TestFileStorage(unittest.TestCase):
     """"""
 
-    def test_path(self):
-        if path.exists("objects.json"):
-            os.remove("objects.json")
-        # f = FileStorage()
-        # storage = f._FileStorage_.__file_path
-        # self.assertEqual(storage, 'objects.json')
+    def testHasAttributes(self):
+        """verify if attributes exist"""
+        self.assertEqual(hasattr(FileStorage, '_FileStorage__file_path'), True)
+        self.assertEqual(hasattr(FileStorage, '_FileStorage__objects'), True)
+
