@@ -17,3 +17,5 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(hasattr(FileStorage, '_FileStorage__file_path'), True)
         self.assertEqual(hasattr(FileStorage, '_FileStorage__objects'), True)
 
+if __name__ == '__main__':
+    unittest.main()
