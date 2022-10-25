@@ -7,12 +7,18 @@ import unittest
 import os
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+from models import storage
 from os import path
 
 
 
 class TestFileStorage(unittest.TestCase):
     """"""
+
+    def testClassInstance(self):
+        """ Check instance """
+        self.assertIsInstance(storage, FileStorage)
+    
     def test_all_method(self):
         storage = FileStorage()
         self.assertEqual(storage.all(), {})
