@@ -2,6 +2,7 @@
 """
 """
 from datetime import datetime
+from venv import create
 from models.base_model import BaseModel
 import unittest
 
@@ -22,6 +23,13 @@ class TestBaseModel(unittest.TestCase):
         """Test updated_at attribute"""
         date = datetime
         self.assertEqual(date, type(BaseModel().updated_at))
+
+    def test_save(self):
+        """Test save updated_at"""
+        created = BaseModel().created_at
+        updated = BaseModel().updated_at
+        self.assertNotEqual(created, updated)
+        pass
 
     def test_to_dict(self):
         """Test to_dict method"""
