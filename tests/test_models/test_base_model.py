@@ -23,11 +23,6 @@ class TestBaseModel(unittest.TestCase):
         date = datetime
         self.assertEqual(date, type(BaseModel().updated_at))
 
-    def test_save(self):
-        """Test save updated_at"""
-        self.BaseModel.save()
-        self.assertNotEqual(self.BaseModel.created_at,
-                            self.BaseModel.updated_at)
 
     def test_to_dict(self):
         """Test to_dict method"""
