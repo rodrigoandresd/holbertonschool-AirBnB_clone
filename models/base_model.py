@@ -15,7 +15,7 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key == '__class__':
                     continue
-                if key == 'created_at' or key == 'updated_at':    
+                if key == 'created_at' or key == 'updated_at':
                     value = datetime.fromisoformat(value)
                 setattr(self, key, value)
         else:
@@ -28,7 +28,6 @@ class BaseModel:
         """
         method that returns a string representation
         """
-
         cls_name = self.__class__.__name__
         msg_format = "[{}] ({}) {}"
         return msg_format.format(cls_name, self.id, self.__dict__)

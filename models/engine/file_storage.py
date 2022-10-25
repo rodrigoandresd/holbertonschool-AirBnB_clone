@@ -7,7 +7,7 @@ FileStorage class module
 """
 
 import json
-import os.path
+from os import path
 
 
 class FileStorage:
@@ -36,8 +36,9 @@ class FileStorage:
 
     def reload(self):
         """  Deserializes the JSON file to __objects """
-        if os.path.exists(self.__file_path):
+        if path.exists(self.__file_path):
             with open(self.__file_path, "r", encoding="utf-8") as file:
                 json_object = json.loads(file.read())
+
             for key, value in json_object.items():
                 self.__objects[key] = eval(value["__class__"])(**value)
