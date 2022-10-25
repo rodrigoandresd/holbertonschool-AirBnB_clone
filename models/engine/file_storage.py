@@ -8,6 +8,7 @@ FileStorage class module
 
 import json
 from os import path
+from models.base_model import BaseModel
 
 
 class FileStorage:
