@@ -42,4 +42,4 @@ class FileStorage:
                 json_object = json.loads(file.read())
 
             for key, value in json_object.items():
-                self.__objects[key] = eval(value["__class__"])(**value)
+                self.__objects[key] = BaseModel(**value)
