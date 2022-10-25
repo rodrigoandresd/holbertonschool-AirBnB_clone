@@ -8,7 +8,6 @@ FileStorage class module
 
 import json
 from os import path
-from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -42,4 +41,4 @@ class FileStorage:
                 json_object = json.loads(file.read())
 
             for key, value in json_object.items():
-                self.__objects[key] = BaseModel(**value)
+                self.__objects[key] = [value['__class__']](**value)
