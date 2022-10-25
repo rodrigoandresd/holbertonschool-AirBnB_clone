@@ -14,7 +14,7 @@ class FileStorage:
     """
     FileStorage class module
     """
-    __file_path = "file.json"
+    __file_path = "objects.json"
     __objects = {}
 
     def all(self):
@@ -36,8 +36,9 @@ class FileStorage:
 
     def reload(self):
         """  Deserializes the JSON file to __objects """
+        from models.base_model import BaseModel
         if path.exists(self.__file_path):
             with open(self.__file_path, "r", encoding="utf-8") as file:
                 json_object = json.loads(file.read())
-                for key, value in json_object.items():
-                    self.__objects[key] = eval(value['__class__'])(**value)
+            for key, value in json_object.items():
+                self.__objects[key] = eval(value['__class__'])(**value)
