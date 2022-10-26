@@ -3,6 +3,7 @@
 """
 from datetime import datetime
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 import unittest
 
 
@@ -27,8 +28,11 @@ class TestBaseModel(unittest.TestCase):
         """Test save updated_at"""
         bm = BaseModel()
         bm.save()
-        self.assertNotEqual(bm.created_at,
-                            bm.updated_at)
+        tmp = FileStorage()
+        tmp.reload()
+        self.assertTrue(bm in tmp.all().values())
+        # self.assertNotEqual(bm.created_at,
+        #                     bm.updated_at)
 
     def test_to_dict(self):
         """Test to_dict method"""
