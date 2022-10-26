@@ -10,7 +10,6 @@ import json
 from os import path
 
 
-
 class FileStorage:
     """
     FileStorage class module
@@ -39,9 +38,15 @@ class FileStorage:
         """  Deserializes the JSON file to __objects """
         from models.base_model import BaseModel
         from models.user import User
-        
+        from models.amenity import Amenity
+        from models.city import City
+        from models.place import Place
+        from models.state import State
+        from models.review import Review
+
         if path.exists(self.__file_path):
             with open(self.__file_path, "r", encoding="utf-8") as file:
                 json_object = json.loads(file.read())
+
             for key, value in json_object.items():
                 self.__objects[key] = eval(value['__class__'])(**value)
