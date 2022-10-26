@@ -14,23 +14,19 @@ class TestUser(unittest.TestCase):
     def test_email(self):
         """Test for email attribute"""
         u = User()
-        u.email = "luiyi@example.com"
-        self.assertEqual(u.email, "luiyi@example.com")
+        self.assertEqual(u.email, "")
 
     def test_password(self):
         """Test for password attribute"""
         u = User()
-        u.password = "pwd"
-        self.assertEqual(u.password, "pwd")
+        self.assertEqual(u.password, "")
 
     def test_first_name(self):
         """Test for fitst name attribute"""
         u = User()
-        u.first_name = "Rodrigo"
-        self.assertEqual(u.first_name, "Rodrigo")
+        self.assertEqual(u.first_name, "")
 
     def test_last_name(self):
         """Test for last name attribute"""
         u = User()
-        u.last_name = "Duque"
-        self.assertEqual(u.last_name, "Duque")
+        self.assertEqual(u.last_name, "")
