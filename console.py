@@ -4,6 +4,7 @@
 Program that contains the entry point of the command interpreter
 """
 from models.base_model import BaseModel
+from models import storage
 import cmd
 import json
 
@@ -34,10 +35,22 @@ class HBNBCommand(cmd.Cmd):
         if args != "BaseModel":
             print("** class doesn't exist **")
             return
-        
+
         base = BaseModel()
         base.save()
         print(base.id)
 
+    def do_show(self, args):
+        """"""        
+        if not args:
+            print("** class name missing **")
+            return
+        if args != "BaseModel":
+            print("** class doesn't exist **")
+            return
+        if len(args) == 1:
+            print("** instance id missing **")
+            return
+        
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
