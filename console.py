@@ -87,6 +87,15 @@ class HBNBCommand(cmd.Cmd):
         del storage.all()[f"{name}.{m_id}"]
         storage.save()
 
+    def do_all(self, name):
+        """"""
+        storage_ = storage.all()
+        if name != "BaseModel":
+            print("** class doesn't exist **")
+            return
+        for key, value in storage_.items():
+            print(str(value))
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
