@@ -63,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         (name, m_id) = line_arg
-        base_id = storage.all().get(f"{name}.{m_id}")
+        base_id = storage.all().get(f"{line_arg[0]}.{m_id}")
         if not base_id:
             print("** no instance found **")
             return
@@ -85,12 +85,12 @@ class HBNBCommand(cmd.Cmd):
             return
 
         (name, m_id) = line_arg
-        base_id = storage.all().get(f"{name}.{m_id}")
+        base_id = storage.all().get(f"{line_arg[0]}.{m_id}")
         if not base_id:
             print("** no instance found **")
             return
 
-        del storage.all()[f"{name}.{m_id}"]
+        del storage.all()[f"{line_arg[0]}.{m_id}"]
         storage.save()
 
     def do_all(self, name):
@@ -130,12 +130,12 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        base = storage.all().get(f"{m_name}.{m_id}")
+        base = storage.all().get(f"{line_arg[0]}.{m_id}")
         if not base:
             print("** no instance found **")
             return
 
-        setattr(storage.all()[f"{m_name}.{m_id}"],
+        setattr(storage.all()[f"{line_arg[0]}.{m_id}"],
                 name_attr, value_attr.strip('"'))
         storage.save()
 
