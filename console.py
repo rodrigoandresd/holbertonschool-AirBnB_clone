@@ -120,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         (m_name, m_id, name_attr, value_attr) = line_arg
-        if m_name != BaseModel:
+        if m_name != "BaseModel":
             print("** class doesn't exist **")
             return
 
@@ -129,8 +129,9 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
             return
 
-        storage_ = storage.all()
-        storage_.__setitem__()
+        setattr(storage.all()[f"{m_name}.{m_id}"], name_attr, value_attr.strip('"'))
+        storage.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
