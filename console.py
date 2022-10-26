@@ -51,19 +51,18 @@ class HBNBCommand(cmd.Cmd):
             ex: $ show BaseModel 1234-1234-1234
         """
         line_arg = args.split()
-
+        m_name, m_id = line_arg
         if not args:
             print("** class name missing **")
             return
-        if line_arg not in self.model_tags:
+        if m_name not in self.model_tags:
             print("** class doesn't exist **")
             return
         if len(line_arg) == 1:
             print("** instance id missing **")
             return
 
-        (name, m_id) = line_arg
-        base_id = storage.all().get(f"{name}.{m_id}")
+        base_id = storage.all().get(f"{m_name}.{m_id}")
         if not base_id:
             print("** no instance found **")
             return
@@ -108,7 +107,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, args):
         """"""
         line_arg = args.split()
-
+        m_name, m_id, name_attr, value_attr = line_arg
         if not args:
             print("** class name missing **")
             return
@@ -125,7 +124,6 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
 
-        (m_name, m_id, name_attr, value_attr) = line_arg
         if m_name not in self.model_tags:
             print("** class doesn't exist **")
             return
