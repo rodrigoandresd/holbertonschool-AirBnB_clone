@@ -4,7 +4,8 @@
 Module defines a Review Class
 """
 
-from base_model import BaseModel
+from models.base_model import BaseModel
+
 
 class Review(BaseModel):
     """

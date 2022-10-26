@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
 """
-from datetime import datetime
 import uuid
+from datetime import datetime
 from models import storage
 
 
