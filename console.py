@@ -3,8 +3,9 @@
 """
 Program that contains the entry point of the command interpreter
 """
-
+from models.base_model import BaseModel
 import cmd
+import json
 
 
 class HBNBCommand(cmd.Cmd):
@@ -20,10 +21,23 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, args):
         """End of File, exit the program"""
         return True
-    
+
     def emptyline(self):
         """Empty line"""
         pass
+
+    def do_create(self, args):
+        """Create command to create an instance"""
+        if not args:
+            print("** class name missing **")
+            return
+        if args != "BaseModel":
+            print("** class doesn't exist **")
+            return
+        
+        base = BaseModel()
+        base.save()
+        print(base.id)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
