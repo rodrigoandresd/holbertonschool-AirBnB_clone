@@ -12,7 +12,7 @@ import json
 
 class HBNBCommand(cmd.Cmd):
     """
-
+    Initialization command Interpreter
     """
     model_tags = ["BaseModel", "User"]
     prompt = "(hbnb) "
@@ -52,6 +52,7 @@ class HBNBCommand(cmd.Cmd):
         """
         line_arg = args.split()
         m_name, m_id = line_arg
+
         if not args:
             print("** class name missing **")
             return
