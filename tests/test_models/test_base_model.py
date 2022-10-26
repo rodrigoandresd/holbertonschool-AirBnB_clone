@@ -2,7 +2,9 @@
 """
 """
 from datetime import datetime
+import os
 from models.base_model import BaseModel
+from os import path
 import unittest
 
 
@@ -25,8 +27,11 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save(self):
         """Test save updated_at"""
-        base_save = BaseModel()
-        base_save.save()
+        bm = BaseModel()
+        bm.save()
+        self.assertTrue(path.exists("objects.json"))
+        os.remove("objects.json")
+
         create = BaseModel()
         update = BaseModel()
         self.assertNotEqual(create.created_at,
