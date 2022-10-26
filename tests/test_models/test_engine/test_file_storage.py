@@ -11,6 +11,11 @@ from os import path
 class TestFileStorage(unittest.TestCase):
     """"""
 
+    def test_filepath(self):
+        s = FileStorage()
+        storage = s._FileStorage__file_path
+        self.assertEqual(storage, "objects.json")
+
     def test_all_method(self):
         storage = FileStorage()
         self.assertEqual(type(storage.all()), dict)
