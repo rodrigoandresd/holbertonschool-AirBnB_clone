@@ -20,3 +20,9 @@ class TestFileStorage(unittest.TestCase):
         storage = FileStorage()
         self.assertEqual(type(storage.all()), dict)
         self.assertIs(storage.all(), storage._FileStorage__objects)
+
+    def test_reload(self):
+        storage = FileStorage()
+        storage.save()
+        storage.reload()
+        self.assertTrue(len(storage.all()) > 0)
