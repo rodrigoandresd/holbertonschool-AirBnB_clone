@@ -17,5 +17,5 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all_method(self):
         storage = FileStorage()
-        self.assertEqual(storage.all(), {})
+        self.assertEqual(type(storage.all()), dict)
 
