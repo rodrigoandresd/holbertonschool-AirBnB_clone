@@ -10,6 +10,7 @@ import json
 from os import path
 
 
+
 class FileStorage:
     """
     FileStorage class module
@@ -37,6 +38,8 @@ class FileStorage:
     def reload(self):
         """  Deserializes the JSON file to __objects """
         from models.base_model import BaseModel
+        from models.user import User
+        
         if path.exists(self.__file_path):
             with open(self.__file_path, "r", encoding="utf-8") as file:
                 json_object = json.loads(file.read())

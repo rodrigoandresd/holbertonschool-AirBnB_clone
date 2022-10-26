@@ -5,6 +5,7 @@ Program that contains the entry point of the command interpreter
 """
 from models.base_model import BaseModel
 from models import storage
+from models.user import User
 import cmd
 import json
 
@@ -13,6 +14,7 @@ class HBNBCommand(cmd.Cmd):
     """
 
     """
+    model_tags = ["BaseModel", "User"]
     prompt = "(hbnb) "
 
     def do_quit(self, args):
@@ -32,11 +34,15 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        if args != "BaseModel":
+        if args not in self.model_tags:
             print("** class doesn't exist **")
             return
 
-        base = BaseModel()
+        if args == "BaseModel":
+            base = BaseModel()
+        if args == "User":
+            base = User()
+
         base.save()
         print(base.id)
 
@@ -49,7 +55,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        if line_arg[0] != "BaseModel":
+        if line_arg not in self.model_tags:
             print("** class doesn't exist **")
             return
         if len(line_arg) == 1:
@@ -71,7 +77,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        if line_arg[0] != "BaseModel":
+        if line_arg not in self.model_tags:
             print("** class doesn't exist **")
             return
         if len(line_arg) == 1:
@@ -93,7 +99,7 @@ class HBNBCommand(cmd.Cmd):
         """
         storage_ = storage.all()
         if name:
-            if name != "BaseModel":
+            if name not in self.model_tags:
                 print("** class doesn't exist **")
                 return
 
@@ -120,7 +126,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         (m_name, m_id, name_attr, value_attr) = line_arg
-        if m_name != "BaseModel":
+        if m_name not in self.model_tags:
             print("** class doesn't exist **")
             return
 
@@ -129,7 +135,8 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
             return
 
-        setattr(storage.all()[f"{m_name}.{m_id}"], name_attr, value_attr.strip('"'))
+        setattr(storage.all()[f"{m_name}.{m_id}"],
+                name_attr, value_attr.strip('"'))
         storage.save()
 
 

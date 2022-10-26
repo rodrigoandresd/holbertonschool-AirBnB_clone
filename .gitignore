@@ -9,3 +9,5 @@ models/__pycache__/__init__.cpython-38.pyc
 1_main.py
 
 objects.json
+models/__pycache__/user.cpython-38.pyc
+test_save_reload_user.py
