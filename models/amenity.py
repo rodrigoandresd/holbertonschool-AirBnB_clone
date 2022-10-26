@@ -4,7 +4,7 @@
 Module defines an Amenity Class
 """
 
-from base_model import BaseModel
+from models.base_model import BaseModel
 
 class Amenity(BaseModel):
     """
