@@ -90,9 +90,10 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, name):
         """"""
         storage_ = storage.all()
-        if name != "BaseModel":
-            print("** class doesn't exist **")
-            return
+        if name:
+            if name != "BaseModel":
+                print("** class doesn't exist **")
+                return
 
         print([str(value) for key, value in storage_.items()])
 
