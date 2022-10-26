@@ -93,8 +93,8 @@ class HBNBCommand(cmd.Cmd):
         if name != "BaseModel":
             print("** class doesn't exist **")
             return
-        for key, value in storage_.items():
-            print(str(value))
+
+        print([str(value) for key, value in storage_.items()])
 
 
 if __name__ == '__main__':
