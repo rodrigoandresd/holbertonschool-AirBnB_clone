@@ -2,9 +2,7 @@
 """
 """
 from datetime import datetime
-import os
 from models.base_model import BaseModel
-from os import path
 import unittest
 
 
@@ -29,13 +27,7 @@ class TestBaseModel(unittest.TestCase):
         """Test save updated_at"""
         bm = BaseModel()
         bm.save()
-        self.assertTrue(path.exists("objects.json"))
-        os.remove("objects.json")
-
-        create = BaseModel()
-        update = BaseModel()
-        self.assertNotEqual(create.created_at,
-                            update.updated_at)
+        self.assertFalse(bm.created_at == bm.updated_at)
 
     def test_to_dict(self):
         """Test to_dict method"""
