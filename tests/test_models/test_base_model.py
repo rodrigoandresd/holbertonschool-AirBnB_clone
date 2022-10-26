@@ -27,7 +27,8 @@ class TestBaseModel(unittest.TestCase):
         """Test save updated_at"""
         bm = BaseModel()
         bm.save()
-        self.assertFalse(bm.created_at == bm.updated_at)
+        self.assertNotEqual(bm.created_at,
+                            bm.updated_at)
 
     def test_to_dict(self):
         """Test to_dict method"""
