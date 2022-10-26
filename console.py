@@ -45,6 +45,7 @@ class HBNBCommand(cmd.Cmd):
             ex: $ show BaseModel 1234-1234-1234
         """
         line_arg = args.split()
+
         if not args:
             print("** class name missing **")
             return
@@ -62,6 +63,29 @@ class HBNBCommand(cmd.Cmd):
             return
 
         print(base_id)
+
+    def do_destroy(self, args):
+        """command to delete instance based on the class name and id"""
+        line_arg = args.split()
+
+        if not args:
+            print("** class name missing **")
+            return
+        if line_arg[0] != "BaseModel":
+            print("** class doesn't exist **")
+            return
+        if len(line_arg) == 1:
+            print("** instance id missing **")
+            return
+
+        (name, m_id) = line_arg
+        base_id = storage.all().get(f"{name}.{m_id}")
+        if not base_id:
+            print("** no instance found **")
+            return
+
+        del storage.all()[f"{name}.{m_id}"]
+        storage.save()
 
 
 if __name__ == '__main__':
