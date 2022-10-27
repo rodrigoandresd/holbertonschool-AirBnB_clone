@@ -3,7 +3,7 @@
 """
 from datetime import datetime
 from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
+import os
 import unittest
 
 
@@ -26,9 +26,13 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save(self):
         """Test save updated_at"""
-        self.BaseModel().save()
-        self.assertNotEqual(self.BaseModel().created_at,
-                            self.BaseModel().updated_at)
+        bm = BaseModel()
+        try:
+            os.remove("file.json")
+        except Exception:
+            pass
+        bm.save()
+        self.assertTrue(os.path.exists("file.json"))
 
     def test_to_dict(self):
         """Test to_dict method"""
