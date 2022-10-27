@@ -14,12 +14,13 @@ from models.state import State
 import cmd
 import json
 
+
 class HBNBCommand(cmd.Cmd):
     """
     Initialization command Interpreter
     """
     model_tags = ["BaseModel", "User", "State",
-                  "City", "Amenity", "Place", "review"]
+                  "City", "Amenity", "Place", "Review"]
     prompt = "(hbnb) "
 
     def do_quit(self, args):
