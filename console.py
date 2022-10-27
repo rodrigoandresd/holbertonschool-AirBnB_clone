@@ -6,15 +6,20 @@ Program that contains the entry point of the command interpreter
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
+from models.place import Place
+from models.state import State
 import cmd
 import json
-
 
 class HBNBCommand(cmd.Cmd):
     """
     Initialization command Interpreter
     """
-    model_tags = ["BaseModel", "User"]
+    model_tags = ["BaseModel", "User", "State",
+                  "City", "Amenity", "Place", "review"]
     prompt = "(hbnb) "
 
     def do_quit(self, args):
@@ -42,6 +47,16 @@ class HBNBCommand(cmd.Cmd):
             base = BaseModel()
         if args == "User":
             base = User()
+        if args == "State":
+            base = State()
+        if args == "City":
+            base = City()
+        if args == "Place":
+            base = Place()
+        if args == "Amenity":
+            base = Amenity()
+        if args == "Review":
+            base = Review()
 
         base.save()
         print(base.id)
