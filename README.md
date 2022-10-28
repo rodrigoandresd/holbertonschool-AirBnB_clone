@@ -1,3 +1,5 @@
+![HBNB image title](./image/HBNB.png)
+
 # AirBnB clone - The console
 
 ## Description of the Project
@@ -6,7 +8,7 @@ This is the first part of the AirBnB Clone project for Holberton: The objective 
 
 ## The general scope of the project is:
 
-* Create a command line interpreter to manipulate data without a visual interface.
+- Create a command line interpreter to manipulate data without a visual interface.
 
 # Description of the Command Interpreter:
 
@@ -25,15 +27,15 @@ The console will be a tool to validate this storage engine.
 ## How to start it
 
 > """interactive mode"""
-> User$ ./console.py 
-(hbnb) help
+> User$ ./console.py
+> (hbnb) help
 
 > """non-interactive mode"""
 > User$ echo "help" | ./console.py
 
 Documented commands (type help < topic >):
-## How to use it
 
+## How to use it
 
 This is the command's list:
 
@@ -65,5 +67,3 @@ show:
 
     >(hbnb) show User 2bf3ebfd-a220-49ee-9ae6-b01c75f6f6a4
     >[User] (40362ad0-4a6d-48b8-98e9-baaaa282e7c6) {'id': >'40362ad0-4a6d-48b8-98e9-baaaa282e7c6', 'created_at': datetime.datetime(2022, 10, 27, >12, 58, 30, 918358), 'updated_at': datetime.datetime(2022, 10, 27, 12, 58, 30, 918389)}
-
-
