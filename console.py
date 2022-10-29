@@ -67,16 +67,18 @@ class HBNBCommand(cmd.Cmd):
             ex: $ show BaseModel 1234-1234-1234
         """
         line_arg = args.split()
-        m_name, m_id = line_arg
 
         if not args:
             print("** class name missing **")
             return
-        if m_name not in self.model_tags:
-            print("** class doesn't exist **")
-            return
+
         if len(line_arg) == 1:
             print("** instance id missing **")
+            return
+
+        m_name, m_id = line_arg
+        if m_name not in self.model_tags:
+            print("** class doesn't exist **")
             return
 
         base_id = storage.all().get(f"{m_name}.{m_id}")
@@ -89,16 +91,18 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, args):
         """command to delete instance based on the class name and id"""
         line_arg = args.split()
-        m_name, m_id = line_arg
 
         if not args:
             print("** class name missing **")
             return
-        if m_name not in self.model_tags:
-            print("** class doesn't exist **")
-            return
+
         if len(line_arg) == 1:
             print("** instance id missing **")
+            return
+
+        m_name, m_id = line_arg
+        if m_name not in self.model_tags:
+            print("** class doesn't exist **")
             return
 
         base_id = storage.all().get(f"{m_name}.{m_id}")
@@ -124,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, args):
         """"""
         line_arg = args.split()
-        m_name, m_id, name_attr, value_attr = line_arg
+
         if not args:
             print("** class name missing **")
             return
@@ -140,7 +144,7 @@ class HBNBCommand(cmd.Cmd):
         if len(line_arg) == 3:
             print("** value missing **")
             return
-
+        m_name, m_id, name_attr, value_attr = line_arg
         if m_name not in self.model_tags:
             print("** class doesn't exist **")
             return
