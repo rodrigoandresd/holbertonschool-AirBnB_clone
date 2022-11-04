@@ -28,7 +28,7 @@ button:hover {
     height: 100%;
     width: 25%;
     border-right: #DDDDDD solid 1px;
-    margin-left: 30px;
+    margin-left: 60px;
 }
 
 .filters .amenities {
@@ -48,14 +48,18 @@ h4 {
     margin-top: 4px;
 }
 
-h2 {
-    margin-left: 30px;
-    margin-bottom: 5px;
-    margin-top: 0px;
-    position: relative;
+.amenities .popover {
+    margin-left: -12%;
 }
 
+.amenities .popover li {
+    margin-left: 30px;
+}
 
+h2.popover {
+    font-size: 16px;
+    margin-bottom: 0%;
+}
 
 .popover {
     position: relative;
@@ -65,20 +69,31 @@ h2 {
     padding: 0px;
     padding-bottom: 40px;
     padding-top: 30px;
-    max-width: 120%;
+    max-width: 130%;
     margin: 0px;
-    margin-left: -30px;
+    margin-left: -60px;
     visibility: hidden;
 }
 
+li h2 {
+    font-size: 16px;
+    margin: 0;
+    padding-left: 10%;
+}
+
 .popover li {
-    margin-left: 50px;
-    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-bottom: 7px;
+    margin-top: 5px;
     width: 50%;
     list-style: none;
-    display: flex;
     align-items: center;
 }
+
+ul {
+    list-style-type: none;
+}
+
 
 .filters .locations:hover .popover {
     visibility: visible;
